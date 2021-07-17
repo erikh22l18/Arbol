@@ -6,7 +6,6 @@ public class Arbol {
 
   public void añadir_nodo(String dato) {
     Nodo nuevo_nodo = new Nodo();
-
     nuevo_nodo.dato = dato;
 
     if (nodo_raiz == null) {
@@ -14,7 +13,6 @@ public class Arbol {
     } else {
       nuevo_nodo.dad = nodo_actual;
       nodo_actual.children.add(nuevo_nodo);
-      nodo_actual = nuevo_nodo;
     }
   }
 
@@ -30,8 +28,6 @@ public class Arbol {
     temp_1 = nodo_raiz;
 
     for (int i = 0; i < lista_nodos.length; i++) {
-      System.out.println("..." + lista_nodos[i] + " " + i + " " + temp_1.dato);
-
       if (temp_1.dato.equals(lista_nodos[i]) == false) {
         if (i == lista_nodos.length - 1) {
           add = true;
@@ -41,7 +37,6 @@ public class Arbol {
       }
 
       if (i <= lista_nodos.length - 3) {
-        System.out.println("---" + lista_nodos[i + 1]);
         bajar_nivel(lista_nodos[i + 1]);
         temp_1 = nodo_actual;
       }
@@ -71,7 +66,7 @@ public class Arbol {
       if (b.equals(p.dato)) {
         nodo_actual = p;
       } else {
-        System.out.println("-La direccion no existe");
+        System.out.println("La direccion no existe");
       }
     } else {
       System.out.println("La direccion no existe");
@@ -90,8 +85,6 @@ public class Arbol {
       for (int i = 1; i <= espacio; i++) {
         tab += "\t";
       }
-
-      System.out.println(tab + " " + temp_1.dato);
 
       Children tem_a = new Children();
       tem_a = temp_1.children;
@@ -121,6 +114,13 @@ public class Arbol {
     }
 
     return ruta;
+  }
+
+  public void eliminar_nodo(String line) {
+    Nodo temp1_nodo = new Nodo();
+    temp1_nodo.dato = line;
+
+    nodo_actual.children.delete(temp1_nodo);
   }
 
   public void anular_directorio() {

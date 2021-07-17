@@ -12,36 +12,44 @@ public class ArbolApp {
     int sw, opcion;
 
     A.añadir_nodo("root");
+    A.bajar_nivel("root");
     A.añadir_nodo("A");
+    A.bajar_nivel("A");
     A.añadir_nodo("B");
     A.subir_nivel();
     A.añadir_nodo("C");
+    A.añadir_nodo("J");
+    A.bajar_nivel("J");
+    A.añadir_nodo("K");
+    A.bajar_nivel("K");
     A.subir_nivel();
     A.añadir_nodo("E");
-    A.subir_nivel();
+    A.bajar_nivel("E");
     A.añadir_nodo("F");
-    A.subir_nivel();
-    A.subir_nivel();
+    A.bajar_nivel("F");
     A.añadir_nodo("G");
     A.añadir_nodo("H");
+    A.subir_nivel();
+    A.subir_nivel();
     A.añadir_nodo("I");
 
     sw = 1;
     do {
 
-      System.out.println("\n\nDirectorio de rutas\n");
+      System.out.println("\n\n" + "************************************\n" + "\tDirectorio de rutas\n"
+          + "************************************\n");
       System.out.println("0. Salir");
       System.out.println("1. Inserta ruta");
       System.out.println("2. Inserta nodo");
       System.out.println("3. Subir directorio");
       System.out.println("4. Bajar directorio");
-      System.out.println("5. Elimiar esta ruta");
+      System.out.println("5. Eliminar nodo actual");
       System.out.println("6. Eliminar directorio");
       System.out.println("7. Mostrar directorio");
 
       System.out.println("\nRuta actual: \t/" + A.ruta_nodo_actual() + ">");
 
-      System.out.print("Opcion ==> ");
+      System.out.print("Opción ==> ");
 
       opcion = sc.nextInt();
 
@@ -75,10 +83,12 @@ public class ArbolApp {
           A.bajar_nivel(line);
           break;
 
-        // case 5:
-        // int r = L.quitar();
-        // System.out.println(r);
-        // break;
+        case 5:
+          line = sc.nextLine();
+          System.out.print("Digite el nodo de esta ruta a eliminar ==> ");
+          line = sc.nextLine();
+          A.eliminar_nodo(line);
+          break;
 
         case 6:
           A.anular_directorio();
