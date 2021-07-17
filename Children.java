@@ -1,6 +1,6 @@
 package Arbol;
 
-public class Niv {
+public class Children {
   Nodo base = null;
   Nodo cima = null;
   

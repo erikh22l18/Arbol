@@ -7,5 +7,5 @@ public class Nodo {
   Nodo sig;
   
   Nodo dad;
-  Niv children = new Niv();
+  Children children = new Children();
 }
