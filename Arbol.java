@@ -92,6 +92,8 @@ public class Arbol {
       temp_2 = tem_a.base;
 
       espacio += 1;
+      
+      System.out.println(tab + temp_1.dato);
       contenido_directorio(temp_2);
 
       espacio -= 1;

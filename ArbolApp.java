@@ -40,10 +40,10 @@ public class ArbolApp {
           + "************************************\n");
       System.out.println("0. Salir");
       System.out.println("1. Inserta ruta");
-      System.out.println("2. Inserta nodo");
+      System.out.println("2. Inserta nodo a esta ruta");
       System.out.println("3. Subir directorio");
       System.out.println("4. Bajar directorio");
-      System.out.println("5. Eliminar nodo actual");
+      System.out.println("5. Eliminar nodo de esta ruta");
       System.out.println("6. Eliminar directorio");
       System.out.println("7. Mostrar directorio");
 
