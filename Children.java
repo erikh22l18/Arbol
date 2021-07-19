@@ -25,12 +25,10 @@ public class Children {
     if (temp1_nodo.dato != null) {
       if (temp1_nodo.ant != null) {
         temp1_nodo.ant.sig = temp1_nodo.sig;
-        //temp1_nodo.ant = null;
       }
 
       if (temp1_nodo.sig != null) {
         temp1_nodo.sig.ant = temp1_nodo.ant;
-        //temp1_nodo.sig = null;
       }
       temp2_nodo = temp1_nodo;
       if (base != cima) {

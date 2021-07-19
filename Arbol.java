@@ -28,6 +28,9 @@ public class Arbol {
     Nodo temp_1 = new Nodo();
     temp_1 = nodo_raiz;
 
+    Nodo temp_2 = new Nodo();
+    temp_2 = nodo_actual;
+
     for (int i = 0; i < lista_nodos.length; i++) {
       if (temp_1.dato.equals(lista_nodos[i]) == false) {
         if (i == lista_nodos.length - 1) {
@@ -47,12 +50,18 @@ public class Arbol {
       añadir_nodo(txt);
     } else {
       System.out.println("\tNo se puede agregar la ruta " + dato + " por que uno de los nodos no existe");
+      temp_2 = nodo_actual;
     }
   }
 
   public void subir_nivel() {
-    nodo_actual = nodo_actual.dad;
-  }
+    Nodo temp1_nodo = nodo_actual.dad;
+    if (temp1_nodo == null) {
+      System.out.println("\tYa no se puede subir más");
+    } else{
+       nodo_actual = temp1_nodo;
+    System.out.println("\tEsta dentro del nodo " + nodo_actual.dato);
+  }}
 
   public void bajar_nivel(String dato) {
     Nodo temp1_nodo = new Nodo();
@@ -64,7 +73,7 @@ public class Arbol {
       Nodo temp2_nodo = nodo_actual.children.buscar_nodo(temp1_nodo);
       if (temp2_nodo.dato != null) {
         nodo_actual = temp2_nodo;
-        System.out.println("\tSe ha accedido al nodo " + nodo_actual.dato);
+        System.out.println("\tEsta dentro del nodo " + nodo_actual.dato);
       }
     }
   }
@@ -92,7 +101,7 @@ public class Arbol {
 
       espacio -= 1;
       tab = "";
-
+      
       temp_1 = temp_1.sig;
     }
   }
@@ -114,11 +123,11 @@ public class Arbol {
 
       espacio += 1;
 
-      contenido_directorio(temp_2);
+      contenido_directorio_I(temp_2);
 
       espacio -= 1;
       tab = "";
-      System.out.println(temp_1.dato);
+      
       temp_1 = temp_1.ant;
 
     }
