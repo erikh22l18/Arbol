@@ -14,24 +14,23 @@ public class ArbolApp {
     A.añadir_nodo("root");
     A.bajar_nivel("root");
     A.añadir_nodo("A");
-    A.bajar_nivel("A");
     A.añadir_nodo("B");
-    A.subir_nivel();
-    A.añadir_nodo("C");
-    A.añadir_nodo("J");
-    A.bajar_nivel("J");
-    A.añadir_nodo("K");
-    A.bajar_nivel("K");
-    A.subir_nivel();
-    A.añadir_nodo("E");
-    A.bajar_nivel("E");
-    A.añadir_nodo("F");
-    A.bajar_nivel("F");
-    A.añadir_nodo("G");
-    A.añadir_nodo("H");
-    A.subir_nivel();
-    A.subir_nivel();
-    A.añadir_nodo("I");
+    // A.subir_nivel();
+    // A.añadir_nodo("C");
+    // A.añadir_nodo("J");
+    // A.bajar_nivel("J");
+    // A.añadir_nodo("K");
+    // A.bajar_nivel("K");
+    // A.subir_nivel();
+    // A.añadir_nodo("E");
+    // A.bajar_nivel("E");
+    // A.añadir_nodo("F");
+    // A.bajar_nivel("F");
+    // A.añadir_nodo("G");
+    // A.añadir_nodo("H");
+    // A.subir_nivel();
+    // A.subir_nivel();
+    // A.añadir_nodo("I");
 
     sw = 1;
     do {
@@ -96,6 +95,7 @@ public class ArbolApp {
 
         case 7:
           A.contenido_directorio(A.nodo_raiz);
+          A.contenido_directorio_I(A.nodo_raiz);
           break;
       }
     } while (sw == 1);

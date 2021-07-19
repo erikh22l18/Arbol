@@ -5,14 +5,14 @@ public class Arbol {
   private Nodo nodo_actual = null;
 
   public void añadir_nodo(String dato) {
-    Nodo nuevo_nodo = new Nodo();
-    nuevo_nodo.dato = dato;
+    Nodo nodo_a_añadir = new Nodo();
+    nodo_a_añadir.dato = dato;
 
     if (nodo_raiz == null) {
-      nodo_raiz = nodo_actual = nuevo_nodo;
+      nodo_raiz = nodo_actual = nodo_a_añadir;
     } else {
-      nuevo_nodo.dad = nodo_actual;
-      nodo_actual.children.add(nuevo_nodo);
+      nodo_a_añadir.dad = nodo_actual;
+      nodo_actual.children.add(nodo_a_añadir);
     }
   }
 
@@ -57,14 +57,13 @@ public class Arbol {
     Nodo temp1_nodo = new Nodo();
     temp1_nodo.dato = dato;
 
-    if (nodo_actual == null){
+    if (nodo_actual.children.actual == null) {
       System.out.println("\tEl nodo actual esta vacío");
     } else {
       Nodo temp2_nodo = nodo_actual.children.buscar_nodo(temp1_nodo);
-      if (temp2_nodo == null){
-        System.out.println("\tEl nodo pedido no existe");
-      } else {
+      if (temp2_nodo != null) {
         nodo_actual = temp2_nodo;
+        System.out.println("\tSe ha accedido al nodo " + dato);
       }
     }
   }
@@ -86,7 +85,7 @@ public class Arbol {
       temp_2 = temp_1.children.base;
 
       espacio += 1;
-      
+
       System.out.println(tab + temp_1.dato);
       contenido_directorio(temp_2);
 
@@ -94,6 +93,33 @@ public class Arbol {
       tab = "";
 
       temp_1 = temp_1.sig;
+    }
+  }
+
+  public void contenido_directorio_I(Nodo nodo_inicial) {
+    String tab = "";
+
+    Nodo temp_1 = new Nodo();
+    temp_1 = nodo_inicial;
+
+    while (temp_1 != null) {
+      for (int i = 1; i <= espacio; i++) {
+        tab += "\t";
+      }
+      System.out.println(tab + temp_1.dato);
+
+      Nodo temp_2 = new Nodo();
+      temp_2 = temp_1.children.cima;
+
+      espacio += 1;
+      
+      contenido_directorio(temp_2);
+
+      espacio -= 1;
+      tab = "";
+      System.out.println(temp_1.dato);
+      temp_1 = temp_1.ant;
+      
     }
   }
 
@@ -112,11 +138,15 @@ public class Arbol {
     return ruta;
   }
 
-  public void eliminar_nodo(String line) {
+  public void eliminar_nodo(String dato) {
     Nodo temp1_nodo = new Nodo();
-    temp1_nodo.dato = line;
+    temp1_nodo.dato = dato;
 
-    nodo_actual.children.delete(temp1_nodo);
+    if (nodo_actual == null) {
+      System.out.println("\tEl nodo actual esta vacío");
+    } else {
+      nodo_actual.children.delete(temp1_nodo);
+    }
   }
 
   public void anular_directorio() {

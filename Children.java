@@ -6,45 +6,53 @@ public class Children {
 
   Nodo actual = null;
 
-  public void add(Nodo nuevo) {
+  public void add(Nodo nodo_a_añadir) {
     if (actual == null) {
-      actual = nuevo;
+      actual = nodo_a_añadir;
       cima = actual;
       base = actual;
     } else {
-      nuevo.ant = actual;
-      actual.sig = nuevo;
-      actual = nuevo;
+      nodo_a_añadir.ant = actual;
+      actual.sig = nodo_a_añadir;
+      actual = nodo_a_añadir;
       actual.ant = cima;
-      cima = nuevo;
+      cima = nodo_a_añadir;
     }
   }
 
-  public void delete(Nodo eliminado) {
-    Nodo temp1_nodo = cima;
+  public void delete(Nodo nodo_a_eliminar) {
+    Nodo temp1_nodo = buscar_nodo(nodo_a_eliminar);
     Nodo temp2_nodo = new Nodo();
-    if (actual == null)
-      System.out.println("Ruta vacía");
-    else {
-      while (temp1_nodo != null && eliminado.dato.equals(temp1_nodo.dato) == false) {
-        temp2_nodo = temp1_nodo;
-        temp1_nodo = temp2_nodo.ant;
+
+    if (temp1_nodo != null) {
+      if (temp1_nodo.ant != null) {
+        temp1_nodo.ant.sig = temp1_nodo.sig;
+        temp1_nodo.ant = null;
       }
 
-      if (temp1_nodo == null)
-        System.out.println("valor no encontrado");
-      else if (temp1_nodo == cima) {
-        temp1_nodo = temp1_nodo.ant;
+      if (temp1_nodo.sig != null) {
+        temp1_nodo.sig.ant = temp1_nodo.ant;
         temp1_nodo.sig = null;
-        cima = temp1_nodo.ant;
-      } else if (temp1_nodo == base) {
-        temp2_nodo.ant = null;
-        base = temp2_nodo;
-      } else {
-        temp1_nodo.ant.sig = temp2_nodo;
-        temp2_nodo.ant = temp1_nodo.ant;
-        actual = temp2_nodo;
       }
+      temp2_nodo = temp1_nodo;
+      if (base != cima) {
+        if (temp1_nodo == base) {
+          temp1_nodo = temp2_nodo.sig;
+          temp1_nodo.ant = null;
+          base = temp1_nodo;
+        }
+        if (temp1_nodo == cima) {
+          temp1_nodo = temp2_nodo.ant;
+          temp1_nodo.sig = null;
+          base = temp1_nodo;
+        }
+      } else {
+        base = null;
+        cima = null;
+        actual = null;
+      }
+
+      System.out.println("\tEl nodo " + nodo_a_eliminar.dato + " se ha eliminado");
     }
   }
 
@@ -57,7 +65,7 @@ public class Children {
     }
 
     if (temp1_nodo == null) {
-      System.out.println("\tEl nodo pedido no existe");
+      System.out.println("\tEl nodo " + nodo_a_buscar.dato + " no existe");
     } else {
       temp2_nodo = temp1_nodo;
     }
