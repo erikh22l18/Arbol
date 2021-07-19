@@ -12,7 +12,6 @@ public class ArbolApp {
     int sw, opcion;
 
     A.añadir_nodo("root");
-    A.bajar_nivel("root");
     A.añadir_nodo("A");
     A.bajar_nivel("A");
     A.añadir_nodo("B");
@@ -35,7 +34,8 @@ public class ArbolApp {
 
     sw = 1;
     do {
-
+      System.out.println("\nContenido del directorio\n");
+      A.contenido_directorio(A.nodo_raiz);
       System.out.println("\n\n" + "************************************\n" + "\tDirectorio de rutas\n"
           + "************************************\n");
       System.out.println("0. Salir");
@@ -95,6 +95,7 @@ public class ArbolApp {
           break;
 
         case 7:
+          System.out.println("Contenido del directorio\n");
           A.contenido_directorio(A.nodo_raiz);
           A.contenido_directorio_I(A.nodo_raiz);
           break;

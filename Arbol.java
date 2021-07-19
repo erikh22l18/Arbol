@@ -4,6 +4,7 @@ public class Arbol {
   Nodo nodo_raiz = null;
   private Nodo nodo_actual = null;
 
+
   public void añadir_nodo(String dato) {
     Nodo nodo_a_añadir = new Nodo();
     nodo_a_añadir.dato = dato;
@@ -18,8 +19,6 @@ public class Arbol {
   }
 
   public void añadir_nodo_ruta(String dato) {
-    nodo_actual = nodo_raiz;
-
     String[] lista_nodos = dato.split("/");
     String txt = "";
 
@@ -59,7 +58,7 @@ public class Arbol {
     if (temp1_nodo == null) {
       System.out.println("\tYa no se puede subir más");
     } else{
-       nodo_actual = temp1_nodo;
+      nodo_actual = temp1_nodo;
     System.out.println("\tEsta dentro del nodo " + nodo_actual.dato);
   }}
 
@@ -167,3 +166,5 @@ public class Arbol {
     nodo_actual = nodo_raiz;
   }
 }
+
+
