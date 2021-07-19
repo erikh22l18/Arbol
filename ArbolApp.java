@@ -17,19 +17,19 @@ public class ArbolApp {
     A.bajar_nivel("A");
     A.añadir_nodo("B");
     A.añadir_nodo("C");
+    A.añadir_nodo_ruta("root/A/D");
     A.subir_nivel();
     A.añadir_nodo("J");
-    // A.bajar_nivel("J");
-    // A.añadir_nodo("K");
-    // A.bajar_nivel("K");
-    // A.subir_nivel();
-    // A.añadir_nodo("E");
+    A.bajar_nivel("J");
+    A.añadir_nodo("K");
+    A.añadir_nodo("E");
+    A.añadir_nodo_ruta("root/A/B/M");
+    A.añadir_nodo_ruta("root/A/B/Z/8");
     // A.bajar_nivel("E");
     // A.añadir_nodo("F");
     // A.bajar_nivel("F");
     // A.añadir_nodo("G");
     // A.añadir_nodo("H");
-    // A.subir_nivel();
     // A.subir_nivel();
     // A.añadir_nodo("I");
 

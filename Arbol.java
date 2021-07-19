@@ -13,6 +13,7 @@ public class Arbol {
     } else {
       nodo_a_añadir.dad = nodo_actual;
       nodo_actual.children.add(nodo_a_añadir);
+      System.out.println("\tSe ha añadido el nodo " + nodo_a_añadir.dato);
     }
   }
 
@@ -45,7 +46,7 @@ public class Arbol {
     if (add == true) {
       añadir_nodo(txt);
     } else {
-      System.out.println("No se puede agregar la ruta");
+      System.out.println("\tNo se puede agregar la ruta " + dato + " por que uno de los nodos no existe");
     }
   }
 
@@ -61,7 +62,7 @@ public class Arbol {
       System.out.println("\tEl nodo " + nodo_actual.dato + " esta vacío");
     } else {
       Nodo temp2_nodo = nodo_actual.children.buscar_nodo(temp1_nodo);
-      if (temp2_nodo != null) {
+      if (temp2_nodo.dato != null) {
         nodo_actual = temp2_nodo;
         System.out.println("\tSe ha accedido al nodo " + nodo_actual.dato);
       }
@@ -112,14 +113,14 @@ public class Arbol {
       temp_2 = temp_1.children.cima;
 
       espacio += 1;
-      
+
       contenido_directorio(temp_2);
 
       espacio -= 1;
       tab = "";
       System.out.println(temp_1.dato);
       temp_1 = temp_1.ant;
-      
+
     }
   }
 
