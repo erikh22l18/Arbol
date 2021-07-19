@@ -58,12 +58,12 @@ public class Arbol {
     temp1_nodo.dato = dato;
 
     if (nodo_actual.children.actual == null) {
-      System.out.println("\tEl nodo actual esta vacío");
+      System.out.println("\tEl nodo " + nodo_actual.dato + " esta vacío");
     } else {
       Nodo temp2_nodo = nodo_actual.children.buscar_nodo(temp1_nodo);
       if (temp2_nodo != null) {
         nodo_actual = temp2_nodo;
-        System.out.println("\tSe ha accedido al nodo " + dato);
+        System.out.println("\tSe ha accedido al nodo " + nodo_actual.dato);
       }
     }
   }

@@ -14,9 +14,7 @@ public class Children {
     } else {
       nodo_a_añadir.ant = actual;
       actual.sig = nodo_a_añadir;
-      actual = nodo_a_añadir;
-      actual.ant = cima;
-      cima = nodo_a_añadir;
+      cima =actual = nodo_a_añadir;
     }
   }
 
@@ -24,27 +22,27 @@ public class Children {
     Nodo temp1_nodo = buscar_nodo(nodo_a_eliminar);
     Nodo temp2_nodo = new Nodo();
 
-    if (temp1_nodo != null) {
+    if (temp1_nodo.dato != null) {
       if (temp1_nodo.ant != null) {
         temp1_nodo.ant.sig = temp1_nodo.sig;
-        temp1_nodo.ant = null;
+        //temp1_nodo.ant = null;
       }
 
       if (temp1_nodo.sig != null) {
         temp1_nodo.sig.ant = temp1_nodo.ant;
-        temp1_nodo.sig = null;
+        //temp1_nodo.sig = null;
       }
       temp2_nodo = temp1_nodo;
       if (base != cima) {
         if (temp1_nodo == base) {
-          temp1_nodo = temp2_nodo.sig;
-          temp1_nodo.ant = null;
-          base = temp1_nodo;
+          temp2_nodo = temp2_nodo.sig;
+          temp2_nodo.ant = null;
+          base = temp2_nodo;
         }
         if (temp1_nodo == cima) {
-          temp1_nodo = temp2_nodo.ant;
-          temp1_nodo.sig = null;
-          base = temp1_nodo;
+          temp2_nodo = temp2_nodo.ant;
+          temp2_nodo.sig = null;
+          cima = temp2_nodo;
         }
       } else {
         base = null;

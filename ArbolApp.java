@@ -14,10 +14,11 @@ public class ArbolApp {
     A.añadir_nodo("root");
     A.bajar_nivel("root");
     A.añadir_nodo("A");
+    A.bajar_nivel("A");
     A.añadir_nodo("B");
-    // A.subir_nivel();
-    // A.añadir_nodo("C");
-    // A.añadir_nodo("J");
+    A.añadir_nodo("C");
+    A.subir_nivel();
+    A.añadir_nodo("J");
     // A.bajar_nivel("J");
     // A.añadir_nodo("K");
     // A.bajar_nivel("K");
