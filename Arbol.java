@@ -53,23 +53,19 @@ public class Arbol {
     nodo_actual = nodo_actual.dad;
   }
 
-  public void bajar_nivel(String b) {
-    if (nodo_actual.children.actual != null) {
-      Nodo p, c = new Nodo();
-      p = nodo_actual.children.base;
-      c = nodo_actual.children.cima;
+  public void bajar_nivel(String dato) {
+    Nodo temp1_nodo = new Nodo();
+    temp1_nodo.dato = dato;
 
-      while (b.equals(p.dato) == false && p.dato.equals(c.dato) == false) {
-        System.out.println(" " + p.dato);
-        p = p.sig;
-      }
-      if (b.equals(p.dato)) {
-        nodo_actual = p;
-      } else {
-        System.out.println("La direccion no existe");
-      }
+    if (nodo_actual == null){
+      System.out.println("\tEl nodo actual esta vacío");
     } else {
-      System.out.println("La direccion no existe");
+      Nodo temp2_nodo = nodo_actual.children.buscar_nodo(temp1_nodo);
+      if (temp2_nodo == null){
+        System.out.println("\tEl nodo pedido no existe");
+      } else {
+        nodo_actual = temp2_nodo;
+      }
     }
   }
 
@@ -86,10 +82,8 @@ public class Arbol {
         tab += "\t";
       }
 
-      Children tem_a = new Children();
-      tem_a = temp_1.children;
       Nodo temp_2 = new Nodo();
-      temp_2 = tem_a.base;
+      temp_2 = temp_1.children.base;
 
       espacio += 1;
       
