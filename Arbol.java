@@ -60,7 +60,8 @@ public class Arbol {
     } else{
       nodo_actual = temp1_nodo;
     System.out.println("\tEsta dentro del nodo " + nodo_actual.dato);
-  }}
+    }
+}
 
   public void bajar_nivel(String dato) {
     Nodo temp1_nodo = new Nodo();
