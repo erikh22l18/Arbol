@@ -1,9 +1,14 @@
 package Arbol;
 
 public class Arbol {
-  Nodo nodo_raiz = null;
-  private Nodo nodo_actual = null;
+  Nodo nodo_raiz;
+  private Nodo nodo_actual;
 
+  public Arbol() {
+    this.nodo_raiz = new Nodo("root");
+    this.nodo_actual = new Nodo(null);
+    this.nodo_actual = this.nodo_raiz;
+  }
 
   public void añadir_nodo(String dato) {
     Nodo nodo_a_añadir = new Nodo(null);
@@ -30,6 +35,7 @@ public class Arbol {
     Nodo temp_2 = new Nodo(null);
     temp_2 = nodo_actual;
 
+    nodo_actual = nodo_raiz; //dev
     for (int i = 0; i < lista_nodos.length; i++) {
       if (temp_1.dato.equals(lista_nodos[i]) == false) {
         if (i == lista_nodos.length - 1) {
@@ -57,11 +63,11 @@ public class Arbol {
     Nodo temp1_nodo = nodo_actual.dad;
     if (temp1_nodo == null) {
       System.out.println("\tYa no se puede subir más");
-    } else{
+    } else {
       nodo_actual = temp1_nodo;
-    System.out.println("\tEsta dentro del nodo " + nodo_actual.dato);
+      System.out.println("\tEsta dentro del nodo " + nodo_actual.dato);
     }
-}
+  }
 
   public void bajar_nivel(String dato) {
     Nodo temp1_nodo = new Nodo(null);
@@ -101,7 +107,7 @@ public class Arbol {
 
       espacio -= 1;
       tab = "";
-      
+
       temp_1 = temp_1.sig;
     }
   }
@@ -127,7 +133,7 @@ public class Arbol {
 
       espacio -= 1;
       tab = "";
-      
+
       temp_1 = temp_1.ant;
 
     }
@@ -167,5 +173,3 @@ public class Arbol {
     nodo_actual = nodo_raiz;
   }
 }
-
-

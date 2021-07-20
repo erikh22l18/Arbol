@@ -11,7 +11,6 @@ public class ArbolApp {
     int n;
     int sw, opcion;
 
-    A.añadir_nodo("root");
     A.añadir_nodo("A");
     A.bajar_nivel("A");
     A.añadir_nodo("B");
