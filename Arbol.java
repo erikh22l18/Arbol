@@ -6,7 +6,7 @@ public class Arbol {
 
 
   public void añadir_nodo(String dato) {
-    Nodo nodo_a_añadir = new Nodo();
+    Nodo nodo_a_añadir = new Nodo(null);
     nodo_a_añadir.dato = dato;
 
     if (nodo_raiz == null) {
@@ -24,10 +24,10 @@ public class Arbol {
 
     boolean add = false;
 
-    Nodo temp_1 = new Nodo();
+    Nodo temp_1 = new Nodo(null);
     temp_1 = nodo_raiz;
 
-    Nodo temp_2 = new Nodo();
+    Nodo temp_2 = new Nodo(null);
     temp_2 = nodo_actual;
 
     for (int i = 0; i < lista_nodos.length; i++) {
@@ -64,7 +64,7 @@ public class Arbol {
 }
 
   public void bajar_nivel(String dato) {
-    Nodo temp1_nodo = new Nodo();
+    Nodo temp1_nodo = new Nodo(null);
     temp1_nodo.dato = dato;
 
     if (nodo_actual.children.actual == null) {
@@ -83,7 +83,7 @@ public class Arbol {
   public void contenido_directorio(Nodo nodo_raiz) {
     String tab = "";
 
-    Nodo temp_1 = new Nodo();
+    Nodo temp_1 = new Nodo(null);
     temp_1 = nodo_raiz;
 
     while (temp_1 != null) {
@@ -91,7 +91,7 @@ public class Arbol {
         tab += "\t";
       }
 
-      Nodo temp_2 = new Nodo();
+      Nodo temp_2 = new Nodo(null);
       temp_2 = temp_1.children.base;
 
       espacio += 1;
@@ -109,7 +109,7 @@ public class Arbol {
   public void contenido_directorio_I(Nodo nodo_inicial) {
     String tab = "";
 
-    Nodo temp_1 = new Nodo();
+    Nodo temp_1 = new Nodo(null);
     temp_1 = nodo_inicial;
 
     while (temp_1 != null) {
@@ -118,7 +118,7 @@ public class Arbol {
       }
       System.out.println(tab + temp_1.dato);
 
-      Nodo temp_2 = new Nodo();
+      Nodo temp_2 = new Nodo(null);
       temp_2 = temp_1.children.cima;
 
       espacio += 1;
@@ -136,7 +136,7 @@ public class Arbol {
   public String ruta_nodo_actual() {
     String ruta = "";
 
-    Nodo temp = new Nodo();
+    Nodo temp = new Nodo(null);
     temp = nodo_actual;
 
     while (temp != null) {
@@ -149,7 +149,7 @@ public class Arbol {
   }
 
   public void eliminar_nodo(String dato) {
-    Nodo temp1_nodo = new Nodo();
+    Nodo temp1_nodo = new Nodo(null);
     temp1_nodo.dato = dato;
 
     if (nodo_actual == null) {
