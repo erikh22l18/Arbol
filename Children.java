@@ -11,10 +11,20 @@ public class Children {
       actual = nodo_a_añadir;
       cima = actual;
       base = actual;
+      System.out.println("\tSe ha añadido el nodo " + nodo_a_añadir.dato);
     } else {
-      nodo_a_añadir.ant = actual;
-      actual.sig = nodo_a_añadir;
-      cima =actual = nodo_a_añadir;
+      Nodo temp_1 = new Nodo(null);
+      temp_1 = buscar_nodo(nodo_a_añadir);
+
+      if (temp_1.dato != null) {
+        System.out.println("\tEl nodo " + nodo_a_añadir.dato + " ya existe");
+      } else {
+        nodo_a_añadir.ant = actual;
+        actual.sig = nodo_a_añadir;
+        cima = actual = nodo_a_añadir;
+
+        System.out.println("\tSe ha añadido el nodo " + nodo_a_añadir.dato);
+      }
     }
   }
 

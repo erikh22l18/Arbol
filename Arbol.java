@@ -14,13 +14,9 @@ public class Arbol {
     Nodo nodo_a_añadir = new Nodo(null);
     nodo_a_añadir.dato = dato;
 
-    if (nodo_raiz == null) {
-      nodo_raiz = nodo_actual = nodo_a_añadir;
-    } else {
       nodo_a_añadir.dad = nodo_actual;
       nodo_actual.children.add(nodo_a_añadir);
-      System.out.println("\tSe ha añadido el nodo " + nodo_a_añadir.dato);
-    }
+    
   }
 
   public void añadir_nodo_ruta(String dato) {
