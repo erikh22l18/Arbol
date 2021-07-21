@@ -1,21 +1,22 @@
 package Arbol;
 
 public class Arbol {
-  Nodo nodo_raiz = null;
-  private Nodo nodo_actual = null;
+  Nodo nodo_raiz;
+  private Nodo nodo_actual;
 
+  public Arbol() {
+    this.nodo_raiz = new Nodo("root");
+    this.nodo_actual = new Nodo(null);
+    this.nodo_actual = this.nodo_raiz;
+  }
 
   public void añadir_nodo(String dato) {
-    Nodo nodo_a_añadir = new Nodo();
+    Nodo nodo_a_añadir = new Nodo(null);
     nodo_a_añadir.dato = dato;
 
-    if (nodo_raiz == null) {
-      nodo_raiz = nodo_actual = nodo_a_añadir;
-    } else {
-      nodo_a_añadir.dad = nodo_actual;
-      nodo_actual.children.add(nodo_a_añadir);
-      System.out.println("\tSe ha añadido el nodo " + nodo_a_añadir.dato);
-    }
+    nodo_a_añadir.dad = nodo_actual;
+    nodo_actual.children.add(nodo_a_añadir);
+
   }
 
   public void añadir_nodo_ruta(String dato) {
@@ -24,12 +25,13 @@ public class Arbol {
 
     boolean add = false;
 
-    Nodo temp_1 = new Nodo();
+    Nodo temp_1 = new Nodo(null);
     temp_1 = nodo_raiz;
 
-    Nodo temp_2 = new Nodo();
+    Nodo temp_2 = new Nodo(null);
     temp_2 = nodo_actual;
 
+    nodo_actual = nodo_raiz; // dev
     for (int i = 0; i < lista_nodos.length; i++) {
       if (temp_1.dato.equals(lista_nodos[i]) == false) {
         if (i == lista_nodos.length - 1) {
@@ -53,18 +55,40 @@ public class Arbol {
     }
   }
 
+  public void ir_a_ruta(String dato) {
+    Nodo temp_1 = new Nodo(null);
+    temp_1 = nodo_raiz;
+
+    Nodo temp_2 = new Nodo(null);
+    temp_2 = nodo_actual;
+
+    String[] lista_nodos = dato.split("/");
+
+    nodo_actual = nodo_raiz;
+
+    for (int i = 0; i < lista_nodos.length - 1; i++) {
+      if (temp_1.dato.equals(lista_nodos[i]) == false) {
+        nodo_actual = temp_2;
+        System.out.println("\tNo se puede ir a la ruta " + dato + " por que uno de los nodos no existe");
+        break;
+      }
+      bajar_nivel(lista_nodos[i + 1]);
+      temp_1 = nodo_actual;
+    }
+  }
+
   public void subir_nivel() {
     Nodo temp1_nodo = nodo_actual.dad;
     if (temp1_nodo == null) {
       System.out.println("\tYa no se puede subir más");
-    } else{
+    } else {
       nodo_actual = temp1_nodo;
-    System.out.println("\tEsta dentro del nodo " + nodo_actual.dato);
+      System.out.println("\tEsta dentro del nodo " + nodo_actual.dato);
     }
-}
+  }
 
   public void bajar_nivel(String dato) {
-    Nodo temp1_nodo = new Nodo();
+    Nodo temp1_nodo = new Nodo(null);
     temp1_nodo.dato = dato;
 
     if (nodo_actual.children.actual == null) {
@@ -83,7 +107,7 @@ public class Arbol {
   public void contenido_directorio(Nodo nodo_raiz) {
     String tab = "";
 
-    Nodo temp_1 = new Nodo();
+    Nodo temp_1 = new Nodo(null);
     temp_1 = nodo_raiz;
 
     while (temp_1 != null) {
@@ -91,7 +115,7 @@ public class Arbol {
         tab += "\t";
       }
 
-      Nodo temp_2 = new Nodo();
+      Nodo temp_2 = new Nodo(null);
       temp_2 = temp_1.children.base;
 
       espacio += 1;
@@ -101,7 +125,7 @@ public class Arbol {
 
       espacio -= 1;
       tab = "";
-      
+
       temp_1 = temp_1.sig;
     }
   }
@@ -109,7 +133,7 @@ public class Arbol {
   public void contenido_directorio_I(Nodo nodo_inicial) {
     String tab = "";
 
-    Nodo temp_1 = new Nodo();
+    Nodo temp_1 = new Nodo(null);
     temp_1 = nodo_inicial;
 
     while (temp_1 != null) {
@@ -118,7 +142,7 @@ public class Arbol {
       }
       System.out.println(tab + temp_1.dato);
 
-      Nodo temp_2 = new Nodo();
+      Nodo temp_2 = new Nodo(null);
       temp_2 = temp_1.children.cima;
 
       espacio += 1;
@@ -127,7 +151,7 @@ public class Arbol {
 
       espacio -= 1;
       tab = "";
-      
+
       temp_1 = temp_1.ant;
 
     }
@@ -136,7 +160,7 @@ public class Arbol {
   public String ruta_nodo_actual() {
     String ruta = "";
 
-    Nodo temp = new Nodo();
+    Nodo temp = new Nodo(null);
     temp = nodo_actual;
 
     while (temp != null) {
@@ -149,7 +173,7 @@ public class Arbol {
   }
 
   public void eliminar_nodo(String dato) {
-    Nodo temp1_nodo = new Nodo();
+    Nodo temp1_nodo = new Nodo(null);
     temp1_nodo.dato = dato;
 
     if (nodo_actual == null) {
@@ -167,5 +191,3 @@ public class Arbol {
     nodo_actual = nodo_raiz;
   }
 }
-
-

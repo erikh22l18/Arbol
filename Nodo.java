@@ -8,4 +8,8 @@ public class Nodo {
   
   Nodo dad;
   Children children = new Children();
+
+  public Nodo(String dato) {
+    this.dato = dato;
+  }
 }

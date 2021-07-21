@@ -11,16 +11,26 @@ public class Children {
       actual = nodo_a_añadir;
       cima = actual;
       base = actual;
+      System.out.println("\tSe ha añadido el nodo " + nodo_a_añadir.dato);
     } else {
-      nodo_a_añadir.ant = actual;
-      actual.sig = nodo_a_añadir;
-      cima =actual = nodo_a_añadir;
+      Nodo temp_1 = new Nodo(null);
+      temp_1 = buscar_nodo(nodo_a_añadir);
+
+      if (temp_1.dato != null) {
+        System.out.println("\tEl nodo " + nodo_a_añadir.dato + " ya existe");
+      } else {
+        nodo_a_añadir.ant = actual;
+        actual.sig = nodo_a_añadir;
+        cima = actual = nodo_a_añadir;
+
+        System.out.println("\tSe ha añadido el nodo " + nodo_a_añadir.dato);
+      }
     }
   }
 
   public void delete(Nodo nodo_a_eliminar) {
     Nodo temp1_nodo = buscar_nodo(nodo_a_eliminar);
-    Nodo temp2_nodo = new Nodo();
+    Nodo temp2_nodo = new Nodo(null);
 
     if (temp1_nodo.dato != null) {
       if (temp1_nodo.ant != null) {
@@ -54,7 +64,7 @@ public class Children {
 
   public Nodo buscar_nodo(Nodo nodo_a_buscar) {
     Nodo temp1_nodo = cima;
-    Nodo temp2_nodo = new Nodo();
+    Nodo temp2_nodo = new Nodo(null);
 
     while (temp1_nodo != null && nodo_a_buscar.dato.equals(temp1_nodo.dato) == false) {
       temp1_nodo = temp1_nodo.ant;

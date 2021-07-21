@@ -11,7 +11,6 @@ public class ArbolApp {
     int n;
     int sw, opcion;
 
-    A.añadir_nodo("root");
     A.añadir_nodo("A");
     A.bajar_nivel("A");
     A.añadir_nodo("B");
@@ -41,62 +40,66 @@ public class ArbolApp {
       System.out.println("0. Salir");
       System.out.println("1. Inserta ruta");
       System.out.println("2. Inserta nodo a esta ruta");
-      System.out.println("3. Subir directorio");
-      System.out.println("4. Bajar directorio");
-      System.out.println("5. Eliminar nodo de esta ruta");
-      System.out.println("6. Eliminar directorio");
-      System.out.println("7. Mostrar directorio");
+      System.out.println("3. Ir a ruta especifica");
+      System.out.println("4. Subir directorio");
+      System.out.println("5. Bajar directorio");
+      System.out.println("6. Eliminar nodo de esta ruta");
+      System.out.println("7. Eliminar directorio");
+      System.out.println("8. Mostrar directorio");
 
       System.out.println("\nRuta actual: \t/" + A.ruta_nodo_actual() + ">");
 
       System.out.print("Opción ==> ");
 
       opcion = sc.nextInt();
-
+      line = sc.nextLine();
       switch (opcion) {
         case 0:
           sw = 0;
           break;
 
         case 1:
-          line = sc.nextLine();
           System.out.print("Digite la nueva ruta ==> ");
           line = sc.nextLine();
           A.añadir_nodo_ruta(line);
           break;
 
         case 2:
-          line = sc.nextLine();
           System.out.print("Digite el nuevo nodo para esta ruta ==> ");
           line = sc.nextLine();
           A.añadir_nodo(line);
           break;
 
         case 3:
-          A.subir_nivel();
+          System.out.print("Digite la ruta a donde quiere ir ==> ");
+          line = sc.nextLine();
+          A.ir_a_ruta(line);
           break;
 
         case 4:
-          line = sc.nextLine();
+          A.subir_nivel();
+          break;
+
+        case 5:
           System.out.print("Digite el nodo a ingresar ==> ");
           line = sc.nextLine();
           A.bajar_nivel(line);
           break;
 
-        case 5:
-          line = sc.nextLine();
+        case 6:
           System.out.print("Digite el nodo de esta ruta a eliminar ==> ");
           line = sc.nextLine();
           A.eliminar_nodo(line);
           break;
 
-        case 6:
+        case 7:
           A.anular_directorio();
           break;
 
-        case 7:
+        case 8:
           System.out.println("Contenido del directorio\n");
           A.contenido_directorio(A.nodo_raiz);
+          System.out.println("=======================================\n");
           A.contenido_directorio_I(A.nodo_raiz);
           break;
       }
