@@ -14,9 +14,9 @@ public class Arbol {
     Nodo nodo_a_añadir = new Nodo(null);
     nodo_a_añadir.dato = dato;
 
-      nodo_a_añadir.dad = nodo_actual;
-      nodo_actual.children.add(nodo_a_añadir);
-    
+    nodo_a_añadir.dad = nodo_actual;
+    nodo_actual.children.add(nodo_a_añadir);
+
   }
 
   public void añadir_nodo_ruta(String dato) {
@@ -31,7 +31,7 @@ public class Arbol {
     Nodo temp_2 = new Nodo(null);
     temp_2 = nodo_actual;
 
-    nodo_actual = nodo_raiz; //dev
+    nodo_actual = nodo_raiz; // dev
     for (int i = 0; i < lista_nodos.length; i++) {
       if (temp_1.dato.equals(lista_nodos[i]) == false) {
         if (i == lista_nodos.length - 1) {
@@ -52,6 +52,28 @@ public class Arbol {
     } else {
       System.out.println("\tNo se puede agregar la ruta " + dato + " por que uno de los nodos no existe");
       temp_2 = nodo_actual;
+    }
+  }
+
+  public void ir_a_ruta(String dato) {
+    Nodo temp_1 = new Nodo(null);
+    temp_1 = nodo_raiz;
+
+    Nodo temp_2 = new Nodo(null);
+    temp_2 = nodo_actual;
+
+    String[] lista_nodos = dato.split("/");
+
+    nodo_actual = nodo_raiz;
+
+    for (int i = 0; i < lista_nodos.length - 1; i++) {
+      if (temp_1.dato.equals(lista_nodos[i]) == false) {
+        nodo_actual = temp_2;
+        System.out.println("\tNo se puede ir a la ruta " + dato + " por que uno de los nodos no existe");
+        break;
+      }
+      bajar_nivel(lista_nodos[i + 1]);
+      temp_1 = nodo_actual;
     }
   }
 
